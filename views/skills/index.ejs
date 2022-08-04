@@ -21,6 +21,10 @@
 				</a>
 				-
 				<%= s.done ? 'done' : 'not done' %>
+
+				<form method="POST" action="/skills/<%=s.id%>?_method=DELETE">
+					<button type="submit">Delete Skill</button>
+				  </form>
 			</li>
 			<% }) %>
 	</ul>

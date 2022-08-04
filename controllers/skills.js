@@ -13,7 +13,6 @@ function index(req, res, next) {
 function show(req, res) {
     console.log(req.params, " <- req.params"),
         res.render('skills/show.ejs', {
-
             skill: Skill.getOne(req.params.id),
 
         });
@@ -38,12 +37,24 @@ function create(req, res) {
 
 }
 
+
+function deleteSkill(req, res) {
+
+    console.log(req.params, "< - req.paras dlt");
+
+    Skill.deleteOne(req.params.id);
+    res.redirect('/skills'); // <- telling the clinte
+
+
+}
+
 module.exports = {
 
     // index: index,
     index, // what is actually happening
     show,
     new: newSkill,
-    create
+    create,
+    delete: deleteSkill,
 
 }
